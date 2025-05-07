@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    restart: always
+    volumes:
+      - ./app:/app/app
+      - ./logs:/app/logs
+    environment:
+      - FLASK_ENV=production
+      - DATABASE_URL=sqlite:///bus_data.db
+    ports:
+      - "5000:5000"
+    
+  nginx:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/ssl:/etc/nginx/ssl
+      - ./app/static:/usr/share/nginx/html/static
+    depends_on:
+      - web

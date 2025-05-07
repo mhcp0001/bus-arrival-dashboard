@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バス到着情報ダッシュボード</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>バス到着情報ダッシュボード</h1>
+            <div class="last-update">
+                最終更新: <span id="update-time">--:--</span>
+            </div>
+            <div class="system-status">
+                システム状態: <span id="system-status">読み込み中...</span>
+            </div>
+        </header>
+        
+        <main>
+            <div class="bus-info-container" id="bus-info-container">
+                <!-- Bus information will be populated here by JavaScript -->
+                <div class="loading">データを読み込み中...</div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2025 バス到着情報ダッシュボード</p>
+        </footer>
+    </div>
+    
+    <!-- Bus info card template -->
+    <template id="bus-card-template">
+        <div class="bus-card">
+            <div class="bus-card-header">
+                <h2 class="destination">目的地</h2>
+                <span class="bus-number">バス番号</span>
+            </div>
+            <div class="bus-card-body">
+                <div class="bus-info-row">
+                    <span class="label">発車まで:</span>
+                    <span class="value countdown">--分</span>
+                </div>
+                <div class="bus-info-row">
+                    <span class="label">発車予定:</span>
+                    <span class="value scheduled-departure">--:--</span>
+                </div>
+                <div class="bus-info-row">
+                    <span class="label">到着予定:</span>
+                    <span class="value scheduled-arrival">--:--</span>
+                </div>
+                <div class="bus-info-row">
+                    <span class="label">停留場番号:</span>
+                    <span class="value stop-number">-</span>
+                </div>
+                <div class="bus-status" data-status="unknown">
+                    状態: <span class="status-text">不明</span>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
