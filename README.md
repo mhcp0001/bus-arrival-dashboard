@@ -4,7 +4,7 @@
 
 ## 機能
 
-- 小田急バス情報システムからデータを取得（API優先、スクレイピングは代替手段）
+- 小田急バス情報システムからデータを取得（API優先、動的Webページのスクレイピングも対応）
 - 各目的地（三鷹駅、吉祥寺駅、武蔵境駅南口、調布駅北口）ごとのバス情報を表示
 - REST APIによるデータ提供
 - レスポンシブなフロントエンドダッシュボード
@@ -17,6 +17,7 @@
 - データベース: SQLite (開発環境), PostgreSQL (本番環境オプション)
 - フロントエンド: HTML, CSS, JavaScript
 - スケジューラ: APScheduler
+- ブラウザ自動化: Selenium, Chrome/Chromedriver (動的ページのスクレイピング用)
 - コンテナ化: Docker, Docker Compose
 - Webサーバー: Nginx, Gunicorn
 

@@ -7,9 +7,14 @@ services:
     volumes:
       - ./app:/app/app
       - ./logs:/app/logs
+      - ./data:/app/data
     environment:
       - FLASK_ENV=production
       - DATABASE_URL=sqlite:///bus_data.db
+      - PYTHONUNBUFFERED=1
+      - SELENIUM_HEADLESS=true
+      - DISPLAY=:99
+    shm_size: 2gb  # ヘッドレスChromeに十分な共有メモリを提供
     ports:
       - "5000:5000"
     
