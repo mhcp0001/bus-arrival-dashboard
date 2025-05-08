@@ -178,3 +178,5 @@ data/
 logs/
 *.db
 nginx/ssl/
+
+**/.claude/settings.local.json
